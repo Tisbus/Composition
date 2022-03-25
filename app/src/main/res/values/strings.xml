@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Composition</string>
+    <string name="next">Понятно</string>
+    <string name="number">Состав числа</string>
+    <string name="welcome_logo">Welcome_logo</string>
+    <string name="choose_level">Выберите уровень:</string>
+    <string name="test">Тестовый</string>
+    <string name="easy">Легкий</string>
+    <string name="normal">Средний</string>
+    <string name="hard">Тяжелый</string>
 </resources>
