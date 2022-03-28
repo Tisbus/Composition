@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.GameFinishedFragment">
+
+
+    <ImageView
+        android:id="@+id/imageResult"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:srcCompat="@drawable/smile" />
+
+    <TextView
+        android:id="@+id/tvNeedRightAnswers"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/FinishedTextStyles"
+        android:text="@string/count_right_answers"
+        app:layout_constraintBottom_toTopOf="@+id/tvYouBill"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageResult"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/tvYouBill"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/FinishedTextStyles"
+        android:text="@string/your_bill"
+        app:layout_constraintBottom_toTopOf="@+id/tvRequiredPercentAnswers"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNeedRightAnswers" />
+
+    <TextView
+        android:id="@+id/tvRequiredPercentAnswers"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/FinishedTextStyles"
+        android:text="@string/percent_right_answers"
+        app:layout_constraintBottom_toTopOf="@+id/tvPercentRightAnswers"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvYouBill" />
+
+    <TextView
+        android:id="@+id/tvPercentRightAnswers"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/FinishedTextStyles"
+        android:text="@string/percent_answers"
+        app:layout_constraintBottom_toTopOf="@+id/returnButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRequiredPercentAnswers" />
+
+    <Button
+        android:id="@+id/returnButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/retry_again"
+        android:layout_margin="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
