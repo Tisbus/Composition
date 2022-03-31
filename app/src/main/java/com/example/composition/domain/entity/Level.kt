@@ -1,5 +1,7 @@
 package com.example.composition.domain.entity
 
-enum class Level {
+import java.io.Serializable
+
+enum class Level{
    TEST, EASY, NORMAL, HARD
 }
