@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="gameResult"
+            type="com.example.composition.domain.entity.GameResult" />
+    </data>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -23,7 +29,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         style="@style/FinishedTextStyles"
-        android:text="@string/count_right_answers"
+        android:text="@{gameResult.gameSettings.minCountOfRightAnswers}"
         app:layout_constraintBottom_toTopOf="@+id/tvYouBill"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +41,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         style="@style/FinishedTextStyles"
-        android:text="@string/your_bill"
+        android:text="@{gameResult.countOfRightAnswers}"
         app:layout_constraintBottom_toTopOf="@+id/tvRequiredPercentAnswers"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +52,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         style="@style/FinishedTextStyles"
-        android:text="@string/percent_right_answers"
+        android:text="@{gameResult.gameSettings.minPercentRightAnswers}"
         app:layout_constraintBottom_toTopOf="@+id/tvPercentRightAnswers"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,3 +79,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
