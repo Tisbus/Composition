@@ -45,44 +45,10 @@ class GameFragment : Fragment() {
     }
 
     private fun observeViewModel() {
-        viewModel.question.observe(viewLifecycleOwner) {
-            bind.tvSum.text = it.sum.toString()
-            bind.tvLeftNum.text = it.visibleNumber.toString()
-            for (i in 0 until  tvOptions.size){
-                tvOptions[i].text = it.options[i].toString()
-            }
-        }
-        viewModel.percentOfRightAnswers.observe(viewLifecycleOwner) {
-            bind.tvSeparate.setProgress(it, true)
-        }
-        viewModel.enoughCount.observe(viewLifecycleOwner){
-            bind.tvQuestion.setTextColor(getColorByState(it))
-        }
-        viewModel.enoughPercent.observe(viewLifecycleOwner){
-            val color = getColorByState(it)
-            bind.tvSeparate.progressTintList = ColorStateList.valueOf(color)
-        }
-        viewModel.formattedTime.observe(viewLifecycleOwner){
-            bind.tvTimer.text = it
-        }
-        viewModel.minPercent.observe(viewLifecycleOwner){
-            bind.tvSeparate.secondaryProgress = it
-        }
         viewModel.gameResult.observe(viewLifecycleOwner){
             goToFinishedFragment(it)
         }
-        viewModel.progressAnswers.observe(viewLifecycleOwner){
-            bind.tvQuestion.text = it
-        }
-    }
 
-    private fun getColorByState(it: Boolean): Int {
-        val colorResId = if (it) {
-            android.R.color.holo_green_light
-        } else {
-            android.R.color.holo_red_light
-        }
-        return ContextCompat.getColor(requireContext(), colorResId)
     }
 
     override fun onCreateView(
@@ -96,8 +62,9 @@ class GameFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        bind.viewModel = viewModel
+        bind.lifecycleOwner = viewLifecycleOwner
         observeViewModel()
-        setClickListenersToOptions()
     }
 
     override fun onDestroy() {
@@ -105,13 +72,6 @@ class GameFragment : Fragment() {
         _bind = null
     }
 
-    private fun setClickListenersToOptions(){
-        for(tvOption in tvOptions){
-            tvOption.setOnClickListener {
-                viewModel.chooseAnswers(tvOption.text.toString().toInt())
-            }
-        }
-    }
 
     private fun goToFinishedFragment(gameResult: GameResult){
         findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameFinishedFragment(gameResult))
